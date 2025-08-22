@@ -1,73 +1,130 @@
-# Welcome to your Lovable project
+# 🎮 GameMood AI - Intelligent Game Recommendations Based on Your Mood
 
-## Project info
+> **Discover your perfect game match based on your current emotional state. Our AI analyzes how you're feeling and recommends games that fit your vibe.**
 
-**URL**: https://lovable.dev/projects/08721419-af9f-4ca1-8c22-60ca3e395667
+## ✨ Features
 
-## How can I edit this code?
+### 🧠 **Multi-Parameter Mood Analysis**
+- **Typing Speed Detection** - Analyzes your typing patterns for stress levels
+- **Click Intensity Monitoring** - Tracks mouse click pressure and frequency
+- **Text Sentiment Analysis** - Evaluates your written responses
+- **Advanced Assessment** - Comprehensive mood evaluation with confidence scoring
 
-There are several ways of editing your application.
+### 🎯 **Smart Game Recommendations**
+- **Mood-Based Categorization** - Games organized by anger/stress levels
+- **Real Game Database** - 15+ popular games with detailed information
+- **Platform Integration** - Shows available platforms (PC, Switch, Xbox, PlayStation)
+- **Personalized Matching** - Considers your gaming preferences and history
 
-**Use Lovable**
+### 🎨 **Beautiful User Interface**
+- **Modern Design** - Clean, responsive interface with gradient themes
+- **Mobile Optimized** - Works perfectly on all devices
+- **Real-Time Feedback** - Live metrics and progress tracking
+- **Accessibility Features** - Inclusive design for all users
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/08721419-af9f-4ca1-8c22-60ca3e395667) and start prompting.
+## 🚀 Quick Start
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-**Use your preferred IDE**
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/game-mood-advisor.git
+cd game-mood-advisor
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+# Install dependencies
+npm install
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Build for Production
+```bash
+npm run build
+npm run preview
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🎮 Game Categories by Mood
 
-**Use GitHub Codespaces**
+| Mood Level | Anger Score | Recommended Games | Description |
+|------------|-------------|-------------------|-------------|
+| **CALM** | 0-20 | Stardew Valley, Animal Crossing, Minecraft, Civilization VI | Relaxing, creative, low-stress games |
+| **MILD** | 21-40 | Hades, Fall Guys, Forza Horizon 5, FIFA 24 | Engaging, moderate challenge, social games |
+| **MODERATE** | 41-60 | Devil May Cry 5, Street Fighter 6, Need for Speed Heat | High energy, skill-based, action games |
+| **HIGH** | 61-80 | Journey, ABZÛ, Flower | Meditative, peaceful, artistic games |
+| **EXTREME** | 81-100 | Headspace, Calm, Proteus | Wellness apps, meditation, stress relief |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🛠️ Tech Stack
 
-## What technologies are used for this project?
+- **Frontend**: React 18 + TypeScript
+- **Styling**: Tailwind CSS + CSS Modules
+- **UI Components**: Radix UI + Custom Components
+- **Build Tool**: Vite
+- **Database**: Supabase (PostgreSQL)
+- **Deployment**: Vercel/Netlify ready
 
-This project is built with:
+## 📁 Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+game-mood-advisor/
+├── src/
+│   ├── components/          # React components
+│   ├── lib/                # Core logic and utilities
+│   │   ├── gameDatabase.ts # Game data and recommendations
+│   │   ├── angerScoring.ts # Mood analysis algorithms
+│   │   └── recommendationEngine.ts # Game matching logic
+│   ├── pages/              # Page components
+│   └── integrations/       # External service integrations
+├── supabase/               # Database schema and migrations
+└── public/                 # Static assets
+```
 
-## How can I deploy this project?
+## 🔧 Configuration
 
-Simply open [Lovable](https://lovable.dev/projects/08721419-af9f-4ca1-8c22-60ca3e395667) and click on Share -> Publish.
+### Environment Variables
+Create a `.env.local` file:
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-## Can I connect a custom domain to my Lovable project?
+### Supabase Setup
+1. Create a new Supabase project
+2. Run the migrations in `supabase/migrations/`
+3. Update environment variables
 
-Yes, you can!
+## 📱 Screenshots
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+*[Add screenshots of your app here]*
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Game Data**: Curated from popular gaming platforms and reviews
+- **UI Components**: Built with Radix UI and Tailwind CSS
+- **Icons**: Lucide React icon library
+- **Design Inspiration**: Modern gaming and wellness applications
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/yourusername/game-mood-advisor/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/game-mood-advisor/discussions)
+- **Email**: your.email@example.com
+
+---
+
+**Made with ❤️ for gamers who want to find their perfect mood match**
