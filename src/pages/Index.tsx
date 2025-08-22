@@ -6,6 +6,7 @@ import { AdvancedMoodAssessment } from "@/components/AdvancedMoodAssessment";
 import { GameCard } from "@/components/GameCard";
 import { Gamepad2, Brain, Sparkles, ArrowRight, Zap, Target } from "lucide-react";
 import heroImage from "@/assets/hero-gaming-ai.jpg";
+import { getGamesByMood, getRandomGames } from '../lib/gameDatabase';
 
 interface MoodState {
   energy: number;
@@ -21,42 +22,28 @@ const Index = () => {
   const [userMood, setUserMood] = useState<MoodState | null>(null);
   const [advancedMood, setAdvancedMood] = useState<any>(null);
 
-  // Mock game recommendations - in real app this would come from AI API
-  const gameRecommendations = [
-    {
-      title: "Stardew Valley",
-      description: "A relaxing farming simulation with charming pixel art and peaceful gameplay perfect for unwinding.",
-      genre: "Farming Sim",
-      rating: 4.8,
-      playtime: "50+ hours",
-      players: "1-4 players",
-      imageUrl: "/placeholder.svg",
-      matchScore: 95,
-      reasons: ["Relaxing", "Creative", "Social Optional", "Low Stress"]
-    },
-    {
-      title: "Hades",
-      description: "Fast-paced roguelike with stellar combat, amazing story, and just the right amount of challenge.",
-      genre: "Roguelike",
-      rating: 4.9,
-      playtime: "20-30 hours", 
-      players: "Single Player",
-      imageUrl: "/placeholder.svg",
-      matchScore: 87,
-      reasons: ["High Energy", "Challenging", "Engaging Story", "Quick Sessions"]
-    },
-    {
-      title: "Minecraft",
-      description: "Endless creativity in a block-based world where you can build, explore, and create anything you imagine.",
-      genre: "Sandbox",
-      rating: 4.7,
-      playtime: "Infinite",
-      players: "1-∞ players",
-      imageUrl: "/placeholder.svg",
-      matchScore: 82,
-      reasons: ["Creative Freedom", "Flexible Social", "Any Energy Level", "Relaxing"]
+  // Get game recommendations based on mood or show random games
+  const getGameRecommendations = () => {
+    if (advancedMood && advancedMood.level) {
+      return getGamesByMood(advancedMood.level);
+    } else if (userMood) {
+      // Simple mood mapping for basic assessment
+      const moodMap: { [key: string]: string } = {
+        'relaxed': 'CALM',
+        'energetic': 'MILD', 
+        'focused': 'MODERATE',
+        'stressed': 'HIGH',
+        'angry': 'EXTREME'
+      };
+      const mood = Object.keys(moodMap).find(key => userMood[key as keyof MoodState] > 0.5);
+      if (mood && moodMap[mood]) {
+        return getGamesByMood(moodMap[mood]);
+      }
     }
-  ];
+    return getRandomGames(6);
+  };
+
+  const gameRecommendations = getGameRecommendations();
 
   const handleMoodSubmit = (mood: MoodState) => {
     setUserMood(mood);

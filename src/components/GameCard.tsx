@@ -6,13 +6,15 @@ import { Star, Clock, Users } from "lucide-react";
 interface GameCardProps {
   title: string;
   description: string;
-  genre: string;
+  genre: string | string[];
   rating: number;
-  playtime: string;
-  players: string;
+  playtime: string | number;
+  players?: string;
   imageUrl: string;
   matchScore: number;
   reasons: string[];
+  platform?: string[];
+  price?: number;
 }
 
 export const GameCard = ({ 
@@ -37,9 +39,19 @@ export const GameCard = ({
         </div>
         <div className="absolute bottom-3 left-3 right-3">
           <h3 className="text-xl font-bold text-white mb-1">{title}</h3>
-          <Badge variant="outline" className="text-xs">
-            {genre}
-          </Badge>
+          <div className="flex flex-wrap gap-1">
+            {Array.isArray(genre) ? 
+              genre.slice(0, 2).map((g, index) => (
+                <Badge key={index} variant="outline" className="text-xs">
+                  {g}
+                </Badge>
+              ))
+              :
+              <Badge variant="outline" className="text-xs">
+                {genre}
+              </Badge>
+            }
+          </div>
         </div>
       </div>
       
@@ -55,12 +67,19 @@ export const GameCard = ({
           </div>
           <div className="flex items-center gap-1 text-muted-foreground">
             <Clock className="w-4 h-4" />
-            <span>{playtime}</span>
+            <span>
+              {typeof playtime === 'number' 
+                ? `${Math.round(playtime / 60)}h ${playtime % 60}m`
+                : playtime
+              }
+            </span>
           </div>
-          <div className="flex items-center gap-1 text-muted-foreground">
-            <Users className="w-4 h-4" />
-            <span>{players}</span>
-          </div>
+          {players && (
+            <div className="flex items-center gap-1 text-muted-foreground">
+              <Users className="w-4 h-4" />
+              <span>{players}</span>
+            </div>
+          )}
         </div>
 
         <div className="space-y-2">
@@ -73,6 +92,28 @@ export const GameCard = ({
             ))}
           </div>
         </div>
+
+        {(platform || price) && (
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
+            {platform && (
+              <div className="flex items-center gap-1">
+                <span>Platforms:</span>
+                <div className="flex gap-1">
+                  {platform.slice(0, 2).map((p, index) => (
+                    <Badge key={index} variant="outline" className="text-xs">
+                      {p}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            )}
+            {price && (
+              <div className="font-medium text-primary">
+                ${price}
+              </div>
+            )}
+          </div>
+        )}
 
         <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
           Learn More
