@@ -27,18 +27,23 @@ const Index = () => {
     if (advancedMood && advancedMood.level) {
       return getGamesByMood(advancedMood.level);
     } else if (userMood) {
-      // Simple mood mapping for basic assessment
-      const moodMap: { [key: string]: string } = {
-        'relaxed': 'CALM',
-        'energetic': 'MILD', 
-        'focused': 'MODERATE',
-        'stressed': 'HIGH',
-        'angry': 'EXTREME'
-      };
-      const mood = Object.keys(moodMap).find(key => userMood[key as keyof MoodState] > 0.5);
-      if (mood && moodMap[mood]) {
-        return getGamesByMood(moodMap[mood]);
+      // Improved mood mapping for basic assessment
+      const { energy, social, challenge, creativity } = userMood;
+      
+      // Determine mood category based on slider values
+      let moodCategory = 'CALM';
+      
+      if (energy > 70 && challenge > 70) {
+        moodCategory = 'MODERATE';
+      } else if (energy > 60 && challenge > 60) {
+        moodCategory = 'MILD';
+      } else if (energy < 30 && challenge < 30) {
+        moodCategory = 'HIGH';
+      } else if (energy < 20 && challenge < 20) {
+        moodCategory = 'EXTREME';
       }
+      
+      return getGamesByMood(moodCategory);
     }
     return getRandomGames(6);
   };
@@ -77,6 +82,21 @@ const Index = () => {
     setAdvancedMood(null);
   };
 
+  const showHowItWorks = () => {
+    // Add a simple modal or expandable section for "How It Works"
+    alert(`GameMood AI works by analyzing your current emotional state through multiple parameters:
+
+1. **Quick Assessment**: Simple sliders to understand your basic mood
+2. **Advanced Analysis**: 
+   - Typing speed patterns
+   - Click intensity detection  
+   - Text sentiment analysis
+3. **AI Processing**: Our algorithm combines all data to determine your emotional state
+4. **Smart Recommendations**: Games are matched based on your mood profile
+
+The system categorizes moods into 5 levels: CALM, MILD, MODERATE, HIGH, and EXTREME, each with specially curated game recommendations.`);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -88,7 +108,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
         
         <div className="relative z-10 container mx-auto px-4 text-center space-y-8">
-          {!showAssessment && !showRecommendations ? (
+          {!showAssessment && !showAdvancedAssessment && !showRecommendations ? (
             <>
               <div className="space-y-6">
                 <div className="flex items-center justify-center gap-3 mb-6">
@@ -129,6 +149,7 @@ const Index = () => {
                 <Button 
                   variant="outline" 
                   size="lg"
+                  onClick={showHowItWorks}
                   className="border-border/50 bg-background/50 backdrop-blur-sm px-8 py-6 text-lg"
                 >
                   How It Works
@@ -195,7 +216,9 @@ const Index = () => {
                 <p className="text-xl text-muted-foreground mb-8">
                   {advancedMood 
                     ? `Based on your advanced mood analysis (${advancedMood.level} - Score: ${advancedMood.score}/100), here are games that match your current emotional state`
-                    : 'Based on your responses, here are games that match your current vibe'
+                    : userMood
+                    ? `Based on your mood assessment, here are games that match your current vibe`
+                    : 'Here are some great games to try based on your preferences'
                   }
                 </p>
               </div>

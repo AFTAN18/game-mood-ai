@@ -18,8 +18,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Relaxing gameplay", "Creative freedom", "Low stress", "Social optional"],
     imageUrl: "/placeholder.svg",
     price: 14.99,
-    tags: ["relaxing", "creative", "farming", "social", "pixel-art"],
-    players: "1-4 players"
+    tags: ["relaxing", "creative", "farming", "social", "pixel-art"]
   },
   {
     id: "animal-crossing",
@@ -37,8 +36,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Charming characters", "No pressure", "Creative design", "Social interaction"],
     imageUrl: "/placeholder.svg",
     price: 59.99,
-    tags: ["charming", "no-pressure", "creative", "social", "island-life"],
-    players: "1-4 players"
+    tags: ["charming", "no-pressure", "creative", "social", "island-life"]
   },
   {
     id: "minecraft",
@@ -56,8 +54,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Creative freedom", "Flexible social", "Any energy level", "Relaxing"],
     imageUrl: "/placeholder.svg",
     price: 26.95,
-    tags: ["creative", "building", "exploration", "relaxing", "sandbox"],
-    players: "1-∞ players"
+    tags: ["creative", "building", "exploration", "relaxing", "sandbox"]
   },
   {
     id: "civilization-vi",
@@ -75,8 +72,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Strategic thinking", "Low pressure", "Educational", "Engaging"],
     imageUrl: "/placeholder.svg",
     price: 59.99,
-    tags: ["strategy", "turn-based", "educational", "empire-building", "historical"],
-    players: "1-8 players"
+    tags: ["strategy", "turn-based", "educational", "empire-building", "historical"]
   },
 
   // MILD MOOD GAMES (21-40 anger score)
@@ -96,8 +92,7 @@ export const gameDatabase: Game[] = [
     reasons: ["High energy", "Challenging", "Engaging story", "Quick sessions"],
     imageUrl: "/placeholder.svg",
     price: 24.99,
-    tags: ["action", "roguelike", "challenging", "story-driven", "combat"],
-    players: "Single Player"
+    tags: ["action", "roguelike", "challenging", "story-driven", "combat"]
   },
   {
     id: "fall-guys",
@@ -115,8 +110,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Fun multiplayer", "Lighthearted", "Quick matches", "Social fun"],
     imageUrl: "/placeholder.svg",
     price: 0,
-    tags: ["multiplayer", "fun", "lighthearted", "quick-matches", "social"],
-    players: "1-60 players"
+    tags: ["multiplayer", "fun", "lighthearted", "quick-matches", "social"]
   },
   {
     id: "forza-horizon-5",
@@ -134,8 +128,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Exciting", "Beautiful visuals", "Freedom to explore", "Skill-based"],
     imageUrl: "/placeholder.svg",
     price: 59.99,
-    tags: ["racing", "open-world", "beautiful", "exciting", "freedom"],
-    players: "1-12 players"
+    tags: ["racing", "open-world", "beautiful", "exciting", "freedom"]
   },
   {
     id: "fifa-24",
@@ -153,8 +146,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Team sports", "Strategic", "Social", "Skill development"],
     imageUrl: "/placeholder.svg",
     price: 69.99,
-    tags: ["sports", "football", "competitive", "team-based", "strategic"],
-    players: "1-22 players"
+    tags: ["sports", "football", "competitive", "team-based", "strategic"]
   },
 
   // MODERATE MOOD GAMES (41-60 anger score)
@@ -174,8 +166,7 @@ export const gameDatabase: Game[] = [
     reasons: ["High energy", "Skill expression", "Satisfying combat", "Cool factor"],
     imageUrl: "/placeholder.svg",
     price: 59.99,
-    tags: ["action", "hack-n-slash", "stylish", "combat", "cool"],
-    players: "1-2 players"
+    tags: ["action", "hack-n-slash", "stylish", "combat", "cool"]
   },
   {
     id: "street-fighter-6",
@@ -193,8 +184,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Skill-based", "Quick matches", "Competitive", "Satisfying"],
     imageUrl: "/placeholder.svg",
     price: 59.99,
-    tags: ["fighting", "competitive", "skill-based", "quick-matches", "classic"],
-    players: "1-2 players"
+    tags: ["fighting", "competitive", "skill-based", "quick-matches", "classic"]
   },
   {
     id: "need-for-speed-heat",
@@ -212,8 +202,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Fast-paced", "Exciting", "Freedom", "Adrenaline"],
     imageUrl: "/placeholder.svg",
     price: 59.99,
-    tags: ["racing", "action", "fast-paced", "police-chase", "customization"],
-    players: "1-8 players"
+    tags: ["racing", "action", "fast-paced", "police-chase", "customization"]
   },
 
   // HIGH MOOD GAMES (61-80 anger score)
@@ -233,8 +222,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Meditative", "Beautiful", "Low stress", "Emotional"],
     imageUrl: "/placeholder.svg",
     price: 14.99,
-    tags: ["meditative", "beautiful", "emotional", "low-stress", "artistic"],
-    players: "1-2 players"
+    tags: ["meditative", "beautiful", "emotional", "low-stress", "artistic"]
   },
   {
     id: "abzu",
@@ -252,8 +240,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Peaceful", "Beautiful", "Exploration", "Low pressure"],
     imageUrl: "/placeholder.svg",
     price: 19.99,
-    tags: ["peaceful", "underwater", "exploration", "beautiful", "relaxing"],
-    players: "Single Player"
+    tags: ["peaceful", "underwater", "exploration", "beautiful", "relaxing"]
   },
   {
     id: "flower",
@@ -271,8 +258,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Zen-like", "Beautiful", "No pressure", "Meditative"],
     imageUrl: "/placeholder.svg",
     price: 6.99,
-    tags: ["zen", "beautiful", "meditative", "no-pressure", "artistic"],
-    players: "Single Player"
+    tags: ["zen", "beautiful", "meditative", "no-pressure", "artistic"]
   },
 
   // EXTREME MOOD GAMES (81-100 anger score)
@@ -292,8 +278,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Stress relief", "Breathing exercises", "Mindfulness", "Professional guidance"],
     imageUrl: "/placeholder.svg",
     price: 12.99,
-    tags: ["meditation", "stress-relief", "breathing", "mindfulness", "wellness"],
-    players: "Single Player"
+    tags: ["meditation", "stress-relief", "breathing", "mindfulness", "wellness"]
   },
   {
     id: "calm-app",
@@ -311,8 +296,7 @@ export const gameDatabase: Game[] = [
     reasons: ["Sleep aid", "Relaxation", "Soothing sounds", "Professional content"],
     imageUrl: "/placeholder.svg",
     price: 14.99,
-    tags: ["sleep", "relaxation", "soothing", "meditation", "wellness"],
-    players: "Single Player"
+    tags: ["sleep", "relaxation", "soothing", "meditation", "wellness"]
   },
   {
     id: "walking-sim",
@@ -330,8 +314,7 @@ export const gameDatabase: Game[] = [
     reasons: ["No pressure", "Peaceful", "Exploration", "Minimalist"],
     imageUrl: "/placeholder.svg",
     price: 9.99,
-    tags: ["no-pressure", "peaceful", "exploration", "minimalist", "procedural"],
-    players: "Single Player"
+    tags: ["no-pressure", "peaceful", "exploration", "minimalist", "procedural"]
   }
 ];
 
@@ -348,7 +331,7 @@ export const getGamesByMood = (angerLevel: string): Game[] => {
   return gameDatabase.filter(game => gameIds.includes(game.id));
 };
 
-export const getRandomGames = (count: number = 3): Game[] => {
+export const getRandomGames = (count: number = 6): Game[] => {
   const shuffled = [...gameDatabase].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, count);
 };

@@ -100,14 +100,14 @@ export const AdvancedMoodAssessment: React.FC<AdvancedMoodAssessmentProps> = ({
       case 2:
         return metrics.clicking !== null && metrics.clicking.totalClicks > 0;
       case 3:
-        return metrics.sentiment !== null && metrics.sentiment.confidence > 0.3;
+        return metrics.sentiment !== null && metrics.sentiment.confidence > 0.1;
       default:
         return false;
     }
   };
 
   const nextStep = () => {
-    if (currentStep < totalSteps - 1) {
+    if (currentStep < totalSteps - 1 && canProceed()) {
       setCurrentStep(currentStep + 1);
     }
   };
