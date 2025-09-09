@@ -68,6 +68,76 @@ A sophisticated AI-powered game recommendation system that analyzes your emotion
 - **Games**: Headspace, Calm, Proteus
 - **Perfect for**: Wellness, meditation, complete relaxation
 
+## 🚀 Deployment
+
+### Prerequisites
+- Node.js (v18 or higher)
+- npm (v9 or higher)
+- Git
+
+### Local Development
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/game-mood-ai.git
+   cd game-mood-ai
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+### Building for Production
+
+```bash
+# Create production build
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+### Deploying to Netlify
+
+1. Push your code to a GitHub/GitLab repository
+2. Sign in to [Netlify](https://www.netlify.com/)
+3. Click "New site from Git"
+4. Select your repository
+5. Configure build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+6. Add environment variables from your `.env` file in the Netlify dashboard
+7. Deploy!
+
+### Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_API_BASE_URL=your_api_base_url
+```
+
+## 🛠️ Development
+
+```bash
+# Start development server
+npm run dev
+```
+
 ## 🚀 Getting Started
 
 1. **Install Dependencies**:

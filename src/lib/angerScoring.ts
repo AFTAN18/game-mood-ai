@@ -97,11 +97,29 @@ export class AngerDetectionEngine {
   }
 
   private normalizeTimeOfDay(hour: number): number {
-    // Late night hours = higher fatigue = potential anger
-    if (hour >= 22 || hour <= 6) return 30;
-    if (hour >= 7 && hour <= 9) return 20; // Morning rush
-    if (hour >= 17 && hour <= 19) return 25; // Evening rush
-    return 10;
+    // More sophisticated time-of-day analysis
+    // Returns a score from 0-100 based on how the time of day might affect mood
+    
+    // Early morning (12am-6am) - Fatigue and sleep deprivation
+    if (hour >= 0 && hour < 6) return 40;
+    
+    // Morning (6am-9am) - Waking up, potential morning stress
+    if (hour >= 6 && hour < 9) return 25;
+    
+    // Late morning (9am-12pm) - Typically productive hours
+    if (hour >= 9 && hour < 12) return 10;
+    
+    // Afternoon (12pm-5pm) - Post-lunch dip, but still productive
+    if (hour >= 12 && hour < 17) return 15;
+    
+    // Evening (5pm-9pm) - Winding down, leisure time
+    if (hour >= 17 && hour < 21) return 20;
+    
+    // Night (9pm-12am) - Late night, potential fatigue
+    if (hour >= 21) return 35;
+    
+    // Default return (shouldn't happen)
+    return 15;
   }
 
   private normalizePhysiological(heartRate: number): number {
